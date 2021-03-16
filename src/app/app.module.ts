@@ -8,6 +8,10 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { UseAddComponent } from './users/use-add/use-add.component';
 import { InputSerachComponent } from './core/input-serach/input-serach.component';
 import { MessageComponent } from './core/message/message.component';
+import { DashboardComponent } from './layouts/dashboard/dashboard.component';
+import { LoginComponent } from './layouts/login/login.component';
+import {RouterModule} from "@angular/router";
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,12 +20,15 @@ import { MessageComponent } from './core/message/message.component';
     UserListComponent,
     UseAddComponent,
     InputSerachComponent,
-    MessageComponent
+    MessageComponent,
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

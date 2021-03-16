@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UserService} from "../../services/user.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-use-add',
@@ -8,19 +10,24 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class UseAddComponent implements OnInit {
   formAddUser: FormGroup
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private userService: UserService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.formAddUser = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(4)]],
-      image: [''],
+      img: [''],
       phone: [''],
       address: ['']
     })
   }
 
   submit() {
-    console.log(this.formAddUser.value)
+    let data = this.formAddUser.value;
+    this.userService.add(data);
+    this.router.navigate(['admin/users'])
+
   }
 
   get name() {
