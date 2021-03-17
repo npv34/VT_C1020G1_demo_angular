@@ -44,8 +44,17 @@ export class UserService {
     })
   }
 
-  add(user: IUser) {
+  add(user: IUser): void {
     this.users.push(user);
+  }
+
+  getUserByIndex(index: number): IUser {
+    return this.users[index];
+  }
+
+  update(newData: any) {
+    let index = newData.id;
+    this.users[index] = newData
   }
 
 }

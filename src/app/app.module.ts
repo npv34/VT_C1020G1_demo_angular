@@ -12,6 +12,7 @@ import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { LoginComponent } from './layouts/login/login.component';
 import {RouterModule} from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
     InputSerachComponent,
     MessageComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
