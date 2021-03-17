@@ -13,17 +13,9 @@ const appRoutes: Routes = [
     component: DashboardComponent,
     children: [
       {
-        path:'users',
-        component: UserListComponent
-      },
-      {
-        path:'users/add',
-        component: UseAddComponent
-      },
-      {
-        path:'users/:id/edit',
-        component: UserEditComponent
-      },
+        path: 'users',
+        loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)
+      }
     ]
   },
   {
@@ -39,8 +31,7 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(
-      appRoutes,
-      {enableTracing: true} // <-- debugging purposes only
+      appRoutes
     )
   ],
   exports: [
